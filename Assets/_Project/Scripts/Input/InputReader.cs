@@ -5,7 +5,7 @@ using static PlayerInputActions;
 
 namespace CoffeeDrop
 {
-    [CreateAssetMenu(fileName = "InputReader", menuName = "Platformer/InputReader")]
+    [CreateAssetMenu(fileName = "InputReader", menuName = "CoffeeDrop/InputReader")]
     public class InputReader : ScriptableObject, IPlayerActions
     {
         public event UnityAction<Vector2> Move = delegate { };
