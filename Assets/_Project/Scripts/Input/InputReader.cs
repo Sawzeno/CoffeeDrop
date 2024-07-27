@@ -13,6 +13,8 @@ namespace CoffeeDrop
         public event UnityAction EnableMouseControlCamera = delegate { };
         public event UnityAction DisableMouseControlCamera = delegate { };
         public event UnityAction<bool> Jump = delegate { };
+        public event UnityAction<bool> Sprint = delegate { };
+        public event UnityAction<bool> Dash = delegate { };
         PlayerInputActions InputActions;
         public Vector3 Direction => InputActions.Player.Move.ReadValue<Vector2>();
 
@@ -67,7 +69,14 @@ namespace CoffeeDrop
         }
        public void OnRun(InputAction.CallbackContext context)
         {
-            //noop
+            switch(context.phase){
+                case InputActionPhase.Started:
+                Dash.Invoke(true);
+                break;
+                case InputActionPhase.Canceled:
+                Dash.Invoke(false);
+                break;
+            }
         }
         private bool IsDeviceMouse(InputAction.CallbackContext context) => context.control.device.name == "Mouse";
     }
