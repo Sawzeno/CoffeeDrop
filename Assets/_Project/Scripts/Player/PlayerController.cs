@@ -4,7 +4,7 @@ using KBCore.Refs;
 using UnityEngine;
 using Utilities;
 
-using static Globals;
+using static Utilities.Globals;
 
 namespace CoffeeDrop
 {

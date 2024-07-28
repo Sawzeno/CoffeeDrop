@@ -1417,8 +1417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec6dc2b5c5ef4efaae02f8b5f701d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1511364043}
   DetectionAngle: 180
-  InnerDetectionRadius: 1
+  InnerDetectionRadius: 2
   OuterDetectionRadius: 6
   DetectionCooldown: 0.1
   AttackRange: 3
@@ -1769,6 +1770,12 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8693318469462968227, guid: e00449fa044eb4425a3ed635f9a10d21,
     type: 3}
   m_PrefabInstance: {fileID: 5592922289458523996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1511364043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 406370794823801425, guid: 97c8b8965c6ee48deb4a59eb7954b124,
+    type: 3}
+  m_PrefabInstance: {fileID: 2778346682711678092}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1729033530
 GameObject:

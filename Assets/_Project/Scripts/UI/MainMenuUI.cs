@@ -1,6 +1,8 @@
 using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
+using static Utilities.Helpers;
 
 namespace CoffeeDrop
 {
@@ -11,7 +13,7 @@ namespace CoffeeDrop
 
         void Awake(){
             PlayButton.onClick.AddListener(() => Loader.Load(StartingLevel));
-            QuitButton.onClick.AddListener(() => Application.Quit()); // TODO this does not work in editor
+            QuitButton.onClick.AddListener(() => QuitGame()); // TODO this does not work in editor
             Time.timeScale = 1f;
         }
     }

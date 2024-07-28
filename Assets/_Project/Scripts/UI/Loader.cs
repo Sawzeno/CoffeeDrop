@@ -21,4 +21,14 @@ namespace CoffeeDrop
             SceneManager.LoadScene(TargetScene.Name);
         }
     }
+
+    public class LoadingProgess : IProgress<float>
+    {
+        public event Action<float> Progressed;
+        const float ratio = 1f;
+        public void Report(float value)
+        {
+            Progressed?.Invoke(value/ratio);
+        }
+    }
 }
