@@ -1,8 +1,8 @@
 namespace CoffeeDrop
 {
     public class EntitySpawner<T> where T: Entity{
-        IEntityFactory<T> EntityFactory;
-        ISpawnPointStrategy SpawnPointStrategy;
+        readonly IEntityFactory<T> EntityFactory;
+        readonly ISpawnPointStrategy SpawnPointStrategy;
         public EntitySpawner(IEntityFactory<T> entityFactory, ISpawnPointStrategy spawnPointStrategy)
         {
             EntityFactory = entityFactory;

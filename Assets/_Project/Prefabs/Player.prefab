@@ -1717,7 +1717,7 @@ GameObject:
   - component: {fileID: 426350386010774626}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803ecc01a7a5645bd9db4fc59226b2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 426350386010774626}
+  RB: {fileID: 426350386010774626}
   GroundChecker: {fileID: 5655442503990866083}
   Animator: {fileID: 1379701412138081964}
   FreeLookVCam: {fileID: 0}
@@ -1783,11 +1783,14 @@ MonoBehaviour:
   MoveSpeed: 300
   RotationSpeed: 300
   SmoothTime: 0.2
-  JumpForce: 10
+  JumpForce: 5
   JumpDuration: 0.5
-  JumpCooldown: 0
-  JumpMaxHeight: 0.5
   GravityMultiplier: 1
+  JumpCooldown: 0
+  DashForce: 3
+  DashDuration: 1
+  DashDistance: 1
+  DashCooldown: 0
 --- !u!114 &5655442503990866083
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,11 +4,13 @@ using KBCore.Refs;
 using UnityEngine;
 using Utilities;
 
+using static Globals;
+
 namespace CoffeeDrop
 {
     public class PlayerController : ValidatedMonoBehaviour
     {
-        private const float ZeroF = 0f;
+        #region SETTINGS
         [Header("References")]
         [SerializeField, Self] Rigidbody RB;
         [SerializeField, Self] GroundChecker GroundChecker;
@@ -28,30 +30,32 @@ namespace CoffeeDrop
         [SerializeField] float JumpCooldown = 0f;
 
         [Header("Dash Settings")]
-        [SerializeField] float DashForce    =   3f;
-        [SerializeField] float DashDuration =   1f;
+        [SerializeField] float DashForce = 3f;
+        [SerializeField] float DashDuration = 1f;
         [SerializeField] float DashDistance = 1f;
         [SerializeField] float DashCooldown = 0f;
-        
-        // privates
-        Transform MainCamera;
-        float CurrentSpeed;
-        float Velocity;
-        float JumpVelocity;
-        float DashVelocity = 1f;
-        Vector3 Movement;
+        #endregion
+        #region VARS
+        // animator params
+        static readonly int Speed = Animator.StringToHash("Speed");
 
+        //State machine
+        StateMachine StateMachine;
         // timers
         List<Timer> Timers = new List<Timer>();
         CountdownTimer JumpTimer;
         CountdownTimer JumpCooldownTimer;
         CountdownTimer DashTimer;
         CountdownTimer DashCooldownTimer;
-        
-        //State machine
-        StateMachine StateMachine;
-        // animator params
-        static readonly int Speed = Animator.StringToHash("Speed");
+
+        // locals
+        Transform MainCamera;
+        float CurrentSpeed;
+        float Velocity;
+        float JumpVelocity;
+        float DashVelocity = 1f;
+        Vector3 Movement;
+        #endregion
 
         void OnEnable()
         {
@@ -99,13 +103,14 @@ namespace CoffeeDrop
 
             DashTimer = new CountdownTimer(DashDuration);
             DashCooldownTimer = new CountdownTimer(DashCooldown);
-            DashTimer.OnTimerStart+= () => {DashVelocity = DashForce; Debug.Log($"bhelu {DashForce}");};
-            DashTimer.OnTimerStop += () => {
-                DashVelocity    =   1f;
+            DashTimer.OnTimerStart += () => DashVelocity = DashForce;
+            DashTimer.OnTimerStop += () =>
+            {
+                DashVelocity = 1f;
                 DashCooldownTimer.Start();
             };
 
-            Timers = new List<Timer>(4) { JumpTimer, JumpCooldownTimer,DashTimer,DashCooldownTimer };
+            Timers = new List<Timer>(4) { JumpTimer, JumpCooldownTimer, DashTimer, DashCooldownTimer };
 
             // StateMachine
             StateMachine = new();
@@ -113,13 +118,12 @@ namespace CoffeeDrop
             //Declare States
             var locomotionState = new LocomotionState(this, Animator);
             var JumpState = new JumpState(this, Animator);
-            var sprintState = new SprintState(this, Animator);
-            var DashState=  new DashState(this , Animator);
+            var DashState = new DashState(this, Animator);
 
             //Define Transiions
             At(locomotionState, JumpState, new FuncPredicate(() => JumpTimer.IsRunning));
             At(locomotionState, DashState, new FuncPredicate(() => DashTimer.IsRunning));
-            Any(locomotionState, new FuncPredicate(() =>!DashTimer.IsRunning && GroundChecker.IsGrounded && !JumpTimer.IsRunning));
+            Any(locomotionState, new FuncPredicate(() => !DashTimer.IsRunning && GroundChecker.IsGrounded && !JumpTimer.IsRunning));
 
             //Set initial State
             StateMachine.SetState(locomotionState);
@@ -135,10 +139,14 @@ namespace CoffeeDrop
                 JumpTimer.Stop();
             }
         }
-        void OnDash(bool performed){
-            if(performed && !DashTimer.IsRunning && !DashCooldownTimer.IsRunning){
+        void OnDash(bool performed)
+        {
+            if (performed && !DashTimer.IsRunning && !DashCooldownTimer.IsRunning)
+            {
                 DashTimer.Start();
-            }else if(!performed && DashTimer.IsRunning){
+            }
+            else if (!performed && DashTimer.IsRunning)
+            {
                 DashTimer.Stop();
             }
         }
@@ -187,7 +195,6 @@ namespace CoffeeDrop
         private void HandleHorizontalMovement(Vector3 adjustedDirection)
         {
             Vector3 velocity = MoveSpeed * Time.fixedDeltaTime * adjustedDirection * DashVelocity;
-            Debug.Log($"velocity : {DashVelocity}");
             RB.velocity = new Vector3(velocity.x, RB.velocity.y, velocity.z);
         }
         private void HandleRotation(Vector3 adjustedDirection)

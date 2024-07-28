@@ -15,10 +15,11 @@ namespace CoffeeDrop
         {
             base.Awake();
             Spawner = new EntitySpawner<Collectible>(new EntityFactory<Collectible>(CollectibleData), /*base*/SpawnPointStrategy);
-            SpawnTimer = new(SpawnInterval);
+            SpawnTimer = new CountdownTimer(SpawnInterval);
             SpawnTimer.OnTimerStop += () => {
-                if(Counter++ >= SpawnPoints.Length){
+                if(Counter >= SpawnPoints.Length){
                     SpawnTimer.Stop();
+                    return;
                 }
                 Spawn();
                 Counter++;
