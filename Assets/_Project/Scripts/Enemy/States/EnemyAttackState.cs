@@ -15,12 +15,10 @@ namespace CoffeeDrop
         }
         public override void OnEnter()
         {
-            Debug.Log("Attack");
             Animator.CrossFade(AttackHash, CrossFadeDuration);
         }
         public override void Update()
         {
-            Debug.Log("brrrrrr");
             Agent.SetDestination(Player.position);
             Enemy.Attack();
         }

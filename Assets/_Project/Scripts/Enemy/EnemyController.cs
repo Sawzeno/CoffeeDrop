@@ -42,11 +42,8 @@ namespace CoffeeDrop
         }
         public void Attack()
         {
-            Debug.Log("Before atacking");
             if (AttackTimer.IsRunning) return;
             AttackTimer.Start();
-            Debug.Log("Attacking");
-
         }
         void At(IState from, IState to, IPredicate condition) => StateMachine.AddTransition(from, to, condition);
         void Any(IState to, IPredicate condition) => StateMachine.AddAnyTransition(to, condition);
