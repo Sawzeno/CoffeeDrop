@@ -78,7 +78,6 @@ namespace CoffeeDrop
             var operationGroup  =   new AsyncOperationGroup(scenes.Count);
             foreach(var scene in scenes){
                 var operation = SceneManager.UnloadSceneAsync(scene);
-                await Task.Delay(TimeSpan.FromSeconds(2.5f));
                 if(operation == null)continue;
                 operationGroup.Operations.Add(operation);
                 OnSceneUnloaded.Invoke(scene);

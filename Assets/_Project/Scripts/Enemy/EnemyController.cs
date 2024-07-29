@@ -44,9 +44,9 @@ namespace CoffeeDrop
         {
             if (AttackTimer.IsRunning) return;
             AttackTimer.Start();
+            PlayerDetector.PlayerHealth.TakeDamage(10);
         }
         void At(IState from, IState to, IPredicate condition) => StateMachine.AddTransition(from, to, condition);
         void Any(IState to, IPredicate condition) => StateMachine.AddAnyTransition(to, condition);
-
     }
 }

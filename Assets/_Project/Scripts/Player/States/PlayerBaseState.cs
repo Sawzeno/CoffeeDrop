@@ -13,14 +13,13 @@ namespace CoffeeDrop
         protected static readonly int LocomationHash = Animator.StringToHash("Locomotion");
         protected static readonly int JumpHash = Animator.StringToHash("Jump");
         protected static readonly int DashHash = Animator.StringToHash("Dash");
+        protected static readonly int AttackHash = Animator.StringToHash("Attack");
         #endregion
         protected PlayerBaseState(PlayerController player, Animator animator)
         {
             Player = player;
             Animator = animator;
         }
-
-
         public virtual void OnEnter()
         {
             //noop

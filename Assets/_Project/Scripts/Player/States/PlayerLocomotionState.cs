@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace CoffeeDrop
 {
-    public class LocomotionState : PlayerBaseState
+    public class PlayerLocomotionState : PlayerBaseState
     {
-        public LocomotionState(PlayerController player, Animator animator) : base(player, animator)
+        public PlayerLocomotionState(PlayerController player, Animator animator) : base(player, animator)
         {
         }
         public override void OnEnter()
@@ -13,7 +13,6 @@ namespace CoffeeDrop
         }
         public override void FixedUpdate()
         {
-            // call players move logic
             Player.HandleMovement();
         }
     }

@@ -4,15 +4,23 @@ using Utils;
 namespace CoffeeDrop
 {
     public class PlayerDetector : MonoBehaviour{
-        [SerializeField] public Transform Player;
+        public Transform Player {get; private set;}
+        public PlayerHealth PlayerHealth{ get; private set;}
         [SerializeField] float DetectionAngle  =   60f; // cone in front of enemy
         [SerializeField] float InnerDetectionRadius =   5f; // inner radius from enemy
         [SerializeField] float OuterDetectionRadius =   10f; // large circle around enemy
         [SerializeField] float DetectionCooldown    =   1f; // Time between detections
         [SerializeField] float AttackRange = 0.2f;
+
         CountdownTimer DetectionTimer;
+
         IDetectionStrategy DetectionStrategy;
 
+        void Awake(){
+            Player = GameObject.FindGameObjectWithTag("Player").transform;
+            PlayerHealth = Player.GetComponent<PlayerHealth>();
+        }
+        
         void Start(){
             DetectionTimer = new CountdownTimer(DetectionCooldown);
             DetectionStrategy   =   new ConeDetectionStrategy(DetectionAngle, InnerDetectionRadius, OuterDetectionRadius);

@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace CoffeeDrop
 {
-    public class JumpState : PlayerBaseState
+    public class PlayerJumpState : PlayerBaseState
     {
-        public JumpState(PlayerController player, Animator animator) : base(player, animator)
+        public PlayerJumpState(PlayerController player, Animator animator) : base(player, animator)
         {
         }
         public override void OnEnter()

@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace CoffeeDrop
 {
-    public class DashState : PlayerBaseState
+    public class PlayerDashState : PlayerBaseState
     {
-        public DashState(PlayerController player, Animator animator) : base(player, animator)
+        public PlayerDashState(PlayerController player, Animator animator) : base(player, animator)
         {
         }
         public override void OnEnter()
