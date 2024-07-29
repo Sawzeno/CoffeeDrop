@@ -17,11 +17,13 @@ namespace CoffeeDrop
         bool IsRMBPressed;
         bool IsCameraMovementLocked;
         private void OnEnable(){
+            Debug.Log("Camera Manager Enabled");
             Input.Look += OnLook;
             Input.EnableMouseControlCamera += OnEnableMouseControlCamera;
             Input.DisableMouseControlCamera += OnDisableMouseControlCamera;
         }
-        private void Disable(){
+        private void OnDisable(){
+            Debug.Log("Camera Manager Disabled");
             Input.Look -= OnLook;
             Input.EnableMouseControlCamera -= OnEnableMouseControlCamera;
             Input.DisableMouseControlCamera -= OnDisableMouseControlCamera;
@@ -48,6 +50,7 @@ namespace CoffeeDrop
         }
         private void OnEnableMouseControlCamera()
         {
+            Debug.Log("OnEnableMouseControlCamera");
             IsRMBPressed = true;
             // lock the cursosr to the center of the screen and hide it
             Cursor.lockState = CursorLockMode.Locked;

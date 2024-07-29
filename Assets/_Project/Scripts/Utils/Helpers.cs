@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utilities
+namespace Utils
 {
     public class Helpers : MonoBehaviour
     {

@@ -1,6 +1,5 @@
-using System.Data.Common;
 using UnityEngine;
-using Utilities;
+using Utils;
 
 namespace CoffeeDrop
 {

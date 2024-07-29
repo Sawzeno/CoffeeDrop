@@ -1,8 +1,7 @@
 using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.UI;
-using Utilities;
-using static Utilities.Helpers;
+using static Utils.Helpers;
 
 namespace CoffeeDrop
 {

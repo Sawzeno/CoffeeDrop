@@ -51,7 +51,7 @@ namespace CoffeeDrop
                     await Task.Delay(100); // dealy to not go too frequently
                 }
 
-                Scene activeScene   =   SceneManager.GetSceneByName(ActiveSceneGroup.FindSceneNameByType(SceneType.ActiveScene));
+                Scene activeScene   =   SceneManager.GetSceneByName(ActiveSceneGroup.FindSceneNameByType(SceneType.Active));
 
                 if(activeScene.IsValid()){
                     SceneManager.SetActiveScene(activeScene);
@@ -78,6 +78,7 @@ namespace CoffeeDrop
             var operationGroup  =   new AsyncOperationGroup(scenes.Count);
             foreach(var scene in scenes){
                 var operation = SceneManager.UnloadSceneAsync(scene);
+                await Task.Delay(TimeSpan.FromSeconds(2.5f));
                 if(operation == null)continue;
                 operationGroup.Operations.Add(operation);
                 OnSceneUnloaded.Invoke(scene);

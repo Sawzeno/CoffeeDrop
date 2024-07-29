@@ -1,7 +1,5 @@
-using UnityEditor.ShaderGraph;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using Utilities;
+using Utils;
 
 namespace CoffeeDrop
 {
@@ -18,7 +16,6 @@ namespace CoffeeDrop
         void Start(){
             DetectionTimer = new CountdownTimer(DetectionCooldown);
             DetectionStrategy   =   new ConeDetectionStrategy(DetectionAngle, InnerDetectionRadius, OuterDetectionRadius);
-
         }
         void Update() => DetectionTimer.Tick(Time.deltaTime);
 

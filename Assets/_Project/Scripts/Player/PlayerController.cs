@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using Cinemachine;
 using KBCore.Refs;
 using UnityEngine;
-using Utilities;
+using Utils;
 
-using static Utilities.Globals;
+using static Utils.Globals;
 
 namespace CoffeeDrop
 {

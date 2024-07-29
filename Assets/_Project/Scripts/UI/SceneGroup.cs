@@ -8,7 +8,7 @@ using UnityEngine;
 namespace CoffeeDrop
 {
     [Serializable]
-    public class SceneGroup : MonoBehaviour
+    public class SceneGroup
     {
         public string GroupName =   "New Scene Group";
         public List<SceneData> Scenes;
@@ -16,11 +16,11 @@ namespace CoffeeDrop
             return Scenes.FirstOrDefault(scene => scene.SceneType == sceneType)?.Reference.Name;
         }
     }
-
+    [Serializable]
     public class SceneData{
         public SceneReference Reference;
         public string Name => Reference.Name;
         public SceneType SceneType;
     }
-    public enum SceneType{ActiveScene, MainMenu, UserInerface, HUD ,Cinematic, Environment, Tooling}
+    public enum SceneType{Loading, Active, MainMenu, UserInerface, HUD,Cinematic, Environment, Tooling}
 }
