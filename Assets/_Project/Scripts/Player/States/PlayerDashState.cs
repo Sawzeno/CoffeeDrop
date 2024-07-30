@@ -9,7 +9,6 @@ namespace CoffeeDrop
         }
         public override void OnEnter()
         {
-            Debug.Log("Dash State");
             Animator.CrossFade(DashHash, CrossFadeDuration);
         }
         public override void FixedUpdate()

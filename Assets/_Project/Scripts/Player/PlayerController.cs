@@ -56,7 +56,7 @@ namespace CoffeeDrop
         // locals
         Transform MainCamera;
         float CurrentSpeed;
-        Vector3 Movement;
+        Vector3 MovedDirection;
         float Velocity;
         float JumpVelocity;
         float DashVelocity = 1f;
@@ -86,7 +86,7 @@ namespace CoffeeDrop
         }
         void Update()
         {
-            Movement = new Vector3(InputReader.Direction.x, 0f, InputReader.Direction.y);
+            MovedDirection = new Vector3(InputReader.Direction.x, 0f, InputReader.Direction.y);
             StateMachine.Update();
             HandleTimers();
             UpdateAnimator();
@@ -136,7 +136,7 @@ namespace CoffeeDrop
             At(locomotionState, jumpState, new FuncPredicate(() => JumpTimer.IsRunning));
             At(locomotionState, dashState, new FuncPredicate(() => DashTimer.IsRunning));
             At(locomotionState, attackState, new FuncPredicate(() => AttackTimer.IsRunning));
-            At(attackState, locomotionState, new FuncPredicate(() => !AttackTimer.IsRunning));
+            // At(attackState, locomotionState, new FuncPredicate(() => !AttackTimer.IsRunning));
 
             Any(locomotionState, new FuncPredicate(() =>
             GroundChecker.IsGrounded
@@ -178,7 +178,7 @@ namespace CoffeeDrop
         public void HandleMovement()
         {
             // make an vector from the input
-            var adjustedDirection = Quaternion.AngleAxis(MainCamera.eulerAngles.y, Vector3.up) * Movement;
+            var adjustedDirection = Quaternion.AngleAxis(MainCamera.eulerAngles.y, Vector3.up) * MovedDirection;
             if (adjustedDirection.magnitude > ZeroF)
             {
                 // adjust rotation to match movement direction
@@ -193,16 +193,19 @@ namespace CoffeeDrop
                 RB.velocity = new Vector3(ZeroF, RB.velocity.y, ZeroF);
             }
         }
-        private void HandleHorizontalMovement(Vector3 adjustedDirection)
-        {
-            Vector3 velocity = MoveSpeed * Time.fixedDeltaTime * adjustedDirection * DashVelocity;
-            RB.velocity = new Vector3(velocity.x, RB.velocity.y, velocity.z);
-        }
         private void HandleRotation(Vector3 adjustedDirection)
         {
             var targetRotation = Quaternion.LookRotation(adjustedDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, RotationSpeed * Time.deltaTime);
-            Debug.Log(transform.rotation);
+        }
+        private void HandleHorizontalMovement(Vector3 adjustedDirection)
+        {
+            Vector3 velocity = DashVelocity * MoveSpeed * Time.fixedDeltaTime * adjustedDirection;
+            RB.velocity = new Vector3(velocity.x, RB.velocity.y, velocity.z);
+        }
+        private void SmoothSpeed(float value)
+        {
+            CurrentSpeed = Mathf.SmoothDamp(CurrentSpeed, value, ref Velocity, SmoothTime);
         }
         public void HandleJump()
         {
@@ -239,10 +242,6 @@ namespace CoffeeDrop
             {
                 timer.Tick(Time.deltaTime);
             }
-        }
-        private void SmoothSpeed(float value)
-        {
-            CurrentSpeed = Mathf.SmoothDamp(CurrentSpeed, value, ref Velocity, SmoothTime);
         }
         void At(IState from, IState to, IPredicate condition) => StateMachine.AddTransition(from, to, condition);
         void Any(IState to, IPredicate condition) => StateMachine.AddAnyTransition(to, condition);

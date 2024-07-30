@@ -2299,6 +2299,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5648419356659363509, guid: 97c8b8965c6ee48deb4a59eb7954b124,
         type: 3}
+      propertyPath: SmoothTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648419356659363509, guid: 97c8b8965c6ee48deb4a59eb7954b124,
+        type: 3}
       propertyPath: FreeLookVCam
       value: 
       objectReference: {fileID: 1729033531}

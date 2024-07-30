@@ -33,7 +33,6 @@ namespace CoffeeDrop
             float deviceMuliplier = isDeviceMouse? Time.fixedDeltaTime : Time.deltaTime;
             FreeLookVcam.m_XAxis.m_InputAxisValue   =   CameraMovement.x * speedMultiplier * deviceMuliplier;
             FreeLookVcam.m_YAxis.m_InputAxisValue   =   CameraMovement.y * speedMultiplier * deviceMuliplier;
-
         }
         private void OnDisableMouseControlCamera()
         {
