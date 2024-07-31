@@ -31,11 +31,19 @@ namespace Tests
         }
         public void OnLook(InputAction.CallbackContext context)
         {
-            //noop
+            Look.Invoke(context.ReadValue<Vector2>(), IsDeviceMouse(context));
         }
         public void OnMouseControlCamera(InputAction.CallbackContext context)
         {
-            //noop
+            switch (context.phase)
+            {
+                case InputActionPhase.Started:
+                    EnableMouseControlCamera.Invoke();
+                    break;
+                case InputActionPhase.Canceled:
+                    DisableMouseControlCamera.Invoke();
+                    break;
+            }
         }
         public void OnFire(InputAction.CallbackContext context)
         {

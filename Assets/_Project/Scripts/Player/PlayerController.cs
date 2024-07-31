@@ -54,7 +54,6 @@ namespace CoffeeDrop
         CountdownTimer AttackTimer;
 
         // locals
-        Transform MainCamera;
         float CurrentSpeed;
         Vector3 MovedDirection;
         float Velocity;
@@ -94,7 +93,7 @@ namespace CoffeeDrop
         void Awake()
         {
             //Cinemachine camera
-            MainCamera = Camera.main.transform;
+            // MainCamera = Camera.main.transform;
             FreeLookVCam.Follow = transform;
             FreeLookVCam.LookAt = transform;
 
@@ -178,7 +177,7 @@ namespace CoffeeDrop
         public void HandleMovement()
         {
             // make an vector from the input
-            var adjustedDirection = Quaternion.AngleAxis(MainCamera.eulerAngles.y, Vector3.up) * MovedDirection;
+            var adjustedDirection = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up) * MovedDirection;
             if (adjustedDirection.magnitude > ZeroF)
             {
                 // adjust rotation to match movement direction

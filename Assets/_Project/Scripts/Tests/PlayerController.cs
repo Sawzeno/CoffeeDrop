@@ -13,12 +13,10 @@ namespace Tests
 
         [Header("Settings")]
         [SerializeField] float moveSpeed = 1;
+        [SerializeField] float rotationSpeed = 1;
         private Vector3 movedDirection;
 
-        Transform mainCamera;
-
         void Awake(){
-            mainCamera  =   Camera.main.transform;
             freeLookCamera.Follow   =   transform;
             freeLookCamera.LookAt   =   transform;
             // for teleporation purposes
@@ -39,9 +37,27 @@ namespace Tests
         }
         private void HandleMovement()
         {
-            Vector3 velocity    =   moveSpeed * Time.deltaTime * movedDirection;
+            var adjustedDirection = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up) * movedDirection;
+        
+            if(adjustedDirection.magnitude > 0f){
+
+            HandleRotation(adjustedDirection);
+            HandleHorizontalMovement(adjustedDirection);
+            }else{
+                RB.velocity = new Vector3(0f, RB.velocity.y, 0f);
+            }
+        }
+
+        private void HandleRotation(Vector3 adjustedDirection)
+        {
+            var targetRotation  =   Quaternion.LookRotation(adjustedDirection);
+            transform.rotation  =   Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        private void HandleHorizontalMovement(Vector3 adjustedDirection)
+        {
+            Vector3 velocity = moveSpeed * Time.deltaTime * adjustedDirection;
             RB.velocity = new Vector3(velocity.x, RB.velocity.y, velocity.z);
-            Debug.Log($"speed = {RB.velocity.magnitude}");
         }
     }
 }
