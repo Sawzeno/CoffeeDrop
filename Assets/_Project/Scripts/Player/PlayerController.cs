@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using Cinemachine;
 using KBCore.Refs;
 using UnityEngine;
-using Utils;
+using Timers;
+
 
 using static Utils.Globals;
 
@@ -46,7 +47,6 @@ namespace CoffeeDrop
         //State machine
         StateMachine StateMachine;
         // timers
-        List<Timer> Timers = new List<Timer>();
         CountdownTimer JumpTimer;
         CountdownTimer JumpCooldownTimer;
         CountdownTimer DashTimer;
@@ -87,7 +87,6 @@ namespace CoffeeDrop
         {
             MovedDirection = new Vector3(InputReader.Direction.x, 0f, InputReader.Direction.y);
             StateMachine.Update();
-            HandleTimers();
             UpdateAnimator();
         }
         void Awake()
@@ -108,8 +107,17 @@ namespace CoffeeDrop
         {
             JumpTimer = new CountdownTimer(JumpDuration);
             JumpCooldownTimer = new CountdownTimer(JumpCooldown);
-            JumpTimer.OnTimerStart += () => JumpVelocity = JumpForce;
-            JumpTimer.OnTimerStop += () => JumpCooldownTimer.Start();
+            JumpTimer.OnTimerStart += () => {
+                JumpVelocity = JumpForce;
+                Debug.Log("JumpTimer start");
+                };
+            JumpTimer.OnTimerStop += () => {
+                Debug.Log("JumpTimer Stop");
+                JumpCooldownTimer.Start();
+            };
+            JumpCooldownTimer.OnTimerStart += () => Debug.Log("Jump Cooldown timer start");
+            JumpCooldownTimer.OnTimerStop += () => Debug.Log("Jump Cooldown timer stop");
+
 
             DashTimer = new CountdownTimer(DashDuration);
             DashCooldownTimer = new CountdownTimer(DashCooldown);
@@ -121,7 +129,6 @@ namespace CoffeeDrop
             };
 
             AttackTimer = new CountdownTimer(AttackCooldown);
-            Timers = new List<Timer>(4) { JumpTimer, JumpCooldownTimer, DashTimer, DashCooldownTimer,AttackTimer };
         }
         private void SetupStateMachine()
         {
@@ -235,14 +242,16 @@ namespace CoffeeDrop
                 }
             }
         }
-        void HandleTimers()
-        {
-            foreach (var timer in Timers)
-            {
-                timer.Tick(Time.deltaTime);
-            }
-        }
+
         void At(IState from, IState to, IPredicate condition) => StateMachine.AddTransition(from, to, condition);
         void Any(IState to, IPredicate condition) => StateMachine.AddAnyTransition(to, condition);
+
+        void OnDestroy(){
+             JumpTimer.Dispose();
+             JumpCooldownTimer.Dispose();
+             DashTimer.Dispose();
+             DashCooldownTimer.Dispose();
+             AttackTimer.Dispose();
+        }
     };
 }

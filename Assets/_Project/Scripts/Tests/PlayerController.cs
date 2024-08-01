@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using KBCore.Refs;
 using UnityEngine;
