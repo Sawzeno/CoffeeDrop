@@ -1,8 +1,6 @@
+using UnityEngine;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using Unity.VisualScripting;
-using UnityEngine;
 
 namespace CoffeeDrop
 {

@@ -4,8 +4,6 @@ using UnityEngine;
 using Timers;
 
 
-using static Utils.Globals;
-
 namespace CoffeeDrop
 {
     public class PlayerController : ValidatedMonoBehaviour
@@ -53,6 +51,7 @@ namespace CoffeeDrop
         CountdownTimer AttackTimer;
 
         // locals
+        float ZeroF = 0.0f;
         float CurrentSpeed;
         Vector3 MovedDirection;
         float Velocity;
