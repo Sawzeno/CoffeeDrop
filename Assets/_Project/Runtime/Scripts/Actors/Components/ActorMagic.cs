@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.Events.Channel;
-namespace Game
+namespace Game.Actors.Components
 {
     public class ActorMagic : MonoBehaviour, IVisitable
     {

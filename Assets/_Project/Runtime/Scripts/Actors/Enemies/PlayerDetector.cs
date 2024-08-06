@@ -1,7 +1,7 @@
 using UnityEngine;
 using App.Timers;
 
-namespace Game
+namespace Game.Actors.Enemies
 {
     public class PlayerDetector : MonoBehaviour{
         public Transform Player {get; private set;}

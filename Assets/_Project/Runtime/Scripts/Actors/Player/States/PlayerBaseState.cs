@@ -1,7 +1,7 @@
 using UnityEngine;
 using Game.StateMachine;
 
-namespace Game.Player.States
+namespace Game.Actors.Player
 {
     public abstract class PlayerBaseState : IState
     {
