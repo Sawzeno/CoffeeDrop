@@ -1,16 +1,17 @@
 using UnityEngine;
 using Game.SpawnSystem;
-using Game.Events.Channel;
+using Game.Actors.Components;
+
 namespace Game.Collectibles
 {
     public class IceCube : Entity{
-        [SerializeField] int Score;
-        [SerializeField] IntEventChannel ScoreChannel;
-
+        public PowerUp PowerUp;
         void OnTriggerEnter(Collider other){
-            if(other.CompareTag("Player")){
-                Debug.Log("Player collected IceCube");
-                ScoreChannel.Invoke(Score);
+            var visitable = other.GetComponent<IVisitable>();
+            if(visitable != null){
+                visitable.Accept(PowerUp);
+                // handle destruciton is spawner
+                Destroy(gameObject);
             }
         }
     }

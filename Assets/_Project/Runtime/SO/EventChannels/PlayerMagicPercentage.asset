@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cb1911d668845f5923990cf604382f, type: 3}
-  m_Name: CoffeBean
+  m_Script: {fileID: 11500000, guid: 8c54bca51e5b043d08a3bc9f68efb488, type: 3}
+  m_Name: PlayerMagicPercentage
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 392638232547775063, guid: c4775a179c2624bd683d64c8691d4c1e, type: 3}
-  Score: 10

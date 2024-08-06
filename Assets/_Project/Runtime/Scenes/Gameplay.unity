@@ -746,7 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 451847558}
-  - component: {fileID: 451847557}
+  - component: {fileID: 451847559}
   m_Layer: 0
   m_Name: CollectibleSpawnManager
   m_TagString: Untagged
@@ -754,27 +754,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &451847557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451847556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5000c3e71741448fcb44659022446208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnStrategyType: 1
-  SpawnPoints:
-  - {fileID: 812372407}
-  - {fileID: 340547652}
-  - {fileID: 168805155}
-  - {fileID: 1157036424}
-  CollectibleData:
-  - {fileID: 11400000, guid: 57b82f673450143d59f8920afc0ee5e2, type: 2}
-  SpawnInterval: 1
 --- !u!4 &451847558
 Transform:
   m_ObjectHideFlags: 0
@@ -794,6 +773,27 @@ Transform:
   - {fileID: 1157036424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451847559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451847556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56a2cef7134c404a83d550214db6f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnStrategyType: 0
+  SpawnPoints:
+  - {fileID: 812372407}
+  - {fileID: 340547652}
+  - {fileID: 168805155}
+  - {fileID: 1157036424}
+  IceCubeData:
+  - {fileID: 11400000, guid: 48e7ee10f125f4eb28bd537a80f15d2f, type: 2}
+  SpawnInterval: 1
 --- !u!1 &461100778
 GameObject:
   m_ObjectHideFlags: 3
@@ -1692,7 +1692,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2778346682711678092}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1511364044
+--- !u!114 &1511364051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1701,11 +1701,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073821723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169e96561d3a540adbc0b45f30d6bf98, type: 3}
+  m_Script: {fileID: 11500000, guid: c5c1ba3b44db84cdd99dda0180126b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  HealthChannel: {fileID: 11400000, guid: 2783997b5cb544ee2a8c68afe8fa4506, type: 2}
+  MaxMagic: 100
+  MagicChannel: {fileID: 11400000, guid: 7f900b885e3a94b6db839b4b6dad936c, type: 2}
 --- !u!1 &1538108277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 543854041991970682, guid: e00449fa044eb4425a3ed635f9a10d21,
@@ -2356,15 +2356,14 @@ PrefabInstance:
       propertyPath: MaxHealth
       value: 100
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6386384700360211749, guid: 97c8b8965c6ee48deb4a59eb7954b124, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5836520122568829788, guid: 97c8b8965c6ee48deb4a59eb7954b124,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1511364044}
+      addedObject: {fileID: 1511364051}
   m_SourcePrefab: {fileID: 100100000, guid: 97c8b8965c6ee48deb4a59eb7954b124, type: 3}
 --- !u!1001 &5592922289458523996
 PrefabInstance:

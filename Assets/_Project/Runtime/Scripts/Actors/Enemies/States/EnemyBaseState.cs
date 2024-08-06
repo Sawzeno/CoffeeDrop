@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.StateMachine;
-namespace Game.Actors.Enemies;
+namespace Game.Actors.Enemies
 {
     public abstract class EnemyBaseState : IState
     {

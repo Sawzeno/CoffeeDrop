@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Effects
 {
     [RequireComponent(typeof(AudioSource))]
-    public class Spawn : MonoBehaviour{
+    public class SpawnEffect : MonoBehaviour{
         [SerializeField] GameObject SpawnVFX;
         [SerializeField] float AnimationDuration = 1f;
         void Start(){

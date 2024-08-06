@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8072473087945948231}
   - component: {fileID: 2420106345531148975}
   m_Layer: 0
-  m_Name: Collectible Coin
+  m_Name: Coffee Bean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

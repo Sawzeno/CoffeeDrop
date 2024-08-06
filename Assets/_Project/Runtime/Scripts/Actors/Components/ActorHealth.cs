@@ -4,9 +4,9 @@ namespace Game.Actors.Components
 {
     public class ActorHealth : MonoBehaviour, IVisitable
     {
+        float CurrentHealth;
         [SerializeField] float MaxHealth = 100;
         [SerializeField] FloatEventChannel HealthChannel;
-        float CurrentHealth;
         void Awake()
         {
             CurrentHealth = MaxHealth;
@@ -35,9 +35,21 @@ namespace Game.Actors.Components
         public void Accept(IVisitor visitor)
         {
             visitor.Visit(this);
-            Debug.Log("Health component - accept");
         }
-
+        public void AddHealth(float health)
+        {
+            if ((CurrentHealth + health) >= MaxHealth)
+            {
+                Debug.Log("max boost");
+                CurrentHealth = MaxHealth;
+            }
+            else
+            {
+                Debug.Log("one boost");
+                CurrentHealth += health;
+            }
+            PublishHealthPercentage();
+        }
         public bool IsDead => CurrentHealth <= 0;
     }
 }

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 1836484614302084210}
   - component: {fileID: 2707098771420379905}
   - component: {fileID: 2297314079266540745}
-  - component: {fileID: 7586376597877946121}
   - component: {fileID: 6502602490985870537}
   - component: {fileID: 5648169154839348369}
+  - component: {fileID: 7877161157984329765}
   m_Layer: 0
-  m_Name: Collectible Chest
+  m_Name: Ice Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,24 +102,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7586376597877946121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235378932581963692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6197356253041c99df2f2633188db6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6502602490985870537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +218,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7877161157984329765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235378932581963692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb51e31fd4dd4922890c87b51b909e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerUp: {fileID: 11400000, guid: 9b85c89f749b54b84b090dc4be69de0a, type: 2}
