@@ -4,7 +4,7 @@ using UnityEngine.AI;
 using App.Timers;
 using Game.StateMachine;
 
-namespace Game
+namespace Game.Actors.Enemies
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(PlayerDetector))]

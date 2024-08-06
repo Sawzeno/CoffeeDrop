@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Player.States
+namespace Game.Actors.Player
 {
     public class PlayerDashState : PlayerBaseState
     {

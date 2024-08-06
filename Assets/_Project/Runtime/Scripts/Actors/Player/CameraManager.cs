@@ -3,10 +3,9 @@ using System.Collections;
 using Cinemachine;
 using KBCore.Refs;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
-namespace Game.Player
+
+namespace Game.Actors.Player
 {
     public class CameraManager : MonoBehaviour{
         [Header("References")]

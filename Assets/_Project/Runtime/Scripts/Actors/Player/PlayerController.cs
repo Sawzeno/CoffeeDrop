@@ -1,12 +1,14 @@
 using Cinemachine;
 using KBCore.Refs;
+
 using UnityEngine;
+
 using App.Timers;
 using Game.StateMachine;
-using Game.Player.States;
+using Game.Actors.Components;
 
 
-namespace Game.Player
+namespace Game.Actors.Player
 {
     public class PlayerController : ValidatedMonoBehaviour
     {

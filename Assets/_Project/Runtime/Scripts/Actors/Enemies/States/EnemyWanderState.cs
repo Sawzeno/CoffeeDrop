@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Game
+namespace Game.Actors.Enemies
 {
     public class EnemyWanderState : EnemyBaseState
     {
