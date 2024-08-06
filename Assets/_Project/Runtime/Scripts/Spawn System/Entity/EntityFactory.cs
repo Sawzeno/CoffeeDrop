@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game.SpawnSystem
 {
     public class EntityFactory<T> : IEntityFactory<T> where T : Entity
     {
@@ -12,7 +12,7 @@ namespace CoffeeDrop
         public T create(Transform spawnPoint)
         {
             EntityDataSO entityData = Data[Random.Range(0, Data.Length)];
-            GameObject instance =   GameObject.Instantiate(entityData.Prefab, spawnPoint.position, spawnPoint.rotation);
+            GameObject instance = Object.Instantiate(entityData.Prefab, spawnPoint.position, spawnPoint.rotation);
             return instance.GetComponent<T>();
         }
     }

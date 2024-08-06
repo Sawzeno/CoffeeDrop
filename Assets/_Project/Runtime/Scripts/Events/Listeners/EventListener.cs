@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace CoffeeDrop
+namespace Game.Events.Channel
 {
     public abstract class EventListener<T> : MonoBehaviour{
         // listen to a certain channel and fire a unity event when that happens

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-namespace Timers
+namespace App.Timers
 {
     public static class TimerManager{
         static readonly List<Timer> timers = new ();

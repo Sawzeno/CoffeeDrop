@@ -1,4 +1,4 @@
-namespace CoffeeDrop
+namespace Game.StateMachine
 {
     public class Transition : ITransition
     {

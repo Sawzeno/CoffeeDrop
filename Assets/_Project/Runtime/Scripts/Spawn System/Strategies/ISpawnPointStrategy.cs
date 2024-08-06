@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game.SpawnSystem
 {
     public interface ISpawnPointStrategy {
         Transform NextSpawnPoint();

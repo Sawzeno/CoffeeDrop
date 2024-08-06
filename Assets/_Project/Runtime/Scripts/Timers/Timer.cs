@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Timers
+namespace App.Timers
 {
     public class CountdownTimer : Timer
     {

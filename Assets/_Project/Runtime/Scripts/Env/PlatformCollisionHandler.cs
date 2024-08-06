@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game
 {
     //when we collide with a platform we want the platform to become the parent of  the Player
     public class PlatformCollisionHandler : MonoBehaviour

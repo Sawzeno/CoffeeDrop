@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-namespace CoffeeDrop
+namespace Game
 {
     public class PlatformMover : MonoBehaviour
     {

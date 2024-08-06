@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 //we are also going to load all these scenes additively
 //the only scene to be loaded in single mode is the BOOTSTRAPER SCENE beacause its job is to UNLOAD all other scenes
 
-namespace CoffeeDrop
+namespace App.SceneManagement
 {
     public class SceneGroupManager{
         SceneGroup ActiveSceneGroup;

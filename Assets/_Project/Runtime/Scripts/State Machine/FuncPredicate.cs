@@ -1,6 +1,6 @@
 using System;
 
-namespace CoffeeDrop
+namespace Game.StateMachine
 {
     public class FuncPredicate : IPredicate
     {

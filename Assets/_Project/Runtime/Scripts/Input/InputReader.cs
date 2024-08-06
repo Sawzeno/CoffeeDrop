@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using static PlayerInputActions;
 
-namespace CoffeeDrop
+namespace Game
 {
     [CreateAssetMenu(fileName = "InputReader", menuName = "CoffeeDrop/InputReader")]
     public class InputReader : ScriptableObject, IPlayerActions

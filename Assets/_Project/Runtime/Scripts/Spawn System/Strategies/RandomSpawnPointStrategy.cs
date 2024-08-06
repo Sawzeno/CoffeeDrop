@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game.SpawnSystem
 {
     public class RandomSpawnPointStrategy : ISpawnPointStrategy
     {

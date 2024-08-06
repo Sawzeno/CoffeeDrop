@@ -1,7 +1,7 @@
 using UnityEngine;
 using Utils;
 
-namespace CoffeeDrop
+namespace Game
 {
     public class GameManager : PersistentSingleton<GameManager>
     {

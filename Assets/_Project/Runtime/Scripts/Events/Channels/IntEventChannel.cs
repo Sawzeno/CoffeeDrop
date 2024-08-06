@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game.Events.Channel
 {
     [CreateAssetMenu(menuName ="Events/IntEventChannel")]
     public class IntEventChannel : EventChannelSO<int>{}

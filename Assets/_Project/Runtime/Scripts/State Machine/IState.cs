@@ -1,4 +1,4 @@
-namespace CoffeeDrop
+namespace Game.StateMachine
 {
     public interface IState{
         void OnEnter();

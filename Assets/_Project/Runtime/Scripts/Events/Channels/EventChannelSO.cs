@@ -1,8 +1,7 @@
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 
-namespace CoffeeDrop
+namespace Game.Events.Channel
 {
     public abstract class EventChannelSO<T> : ScriptableObject
     {

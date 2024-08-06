@@ -1,5 +1,5 @@
 
-namespace CoffeeDrop
+namespace Game.SpawnSystem
 {
     public class EntitySpawner<T> where T: Entity{
         readonly IEntityFactory<T> EntityFactory;

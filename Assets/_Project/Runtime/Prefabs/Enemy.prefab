@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec6dc2b5c5ef4efaae02f8b5f701d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   DetectionAngle: 180
   InnerDetectionRadius: 2
   OuterDetectionRadius: 6
@@ -124,11 +123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 543854041991970682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2278dad1c7f64057bc3bdfa06edabb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 169e96561d3a540adbc0b45f30d6bf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 50
-  PlayerHealthChannel: {fileID: 0}
+  HealthChannel: {fileID: 11400000, guid: 2fb218a5ea4d146ab88065aa77349181, type: 2}
 --- !u!1001 &8786764076992944541
 PrefabInstance:
   m_ObjectHideFlags: 0

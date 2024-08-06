@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game.SpawnSystem
 {
     public class LinearSpawnPointStrategy : ISpawnPointStrategy
     {

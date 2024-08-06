@@ -4,7 +4,7 @@ using System.Linq;
 using Eflatun.SceneReference;
 
 
-namespace CoffeeDrop
+namespace App.SceneManagement
 {
     [Serializable]
     public class SceneGroup

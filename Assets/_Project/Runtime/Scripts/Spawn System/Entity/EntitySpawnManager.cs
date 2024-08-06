@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game.SpawnSystem
 {
     public abstract class EntitySpawnManager : MonoBehaviour{
         [SerializeField] protected SpawnPointStrategyType SpawnStrategyType = SpawnPointStrategyType.Linear;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CoffeeDrop
+namespace Game
 {
     public class GroundChecker : MonoBehaviour{
         [SerializeField] float GroundDistance = 0.08f;

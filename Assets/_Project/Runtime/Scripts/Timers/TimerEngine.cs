@@ -4,7 +4,7 @@ using Utils;
 using UnityEngine.PlayerLoop;
 using UnityEditor;
 
-namespace Timers
+namespace App.Timers
 {
     internal static class TimerBootstrapper
     {

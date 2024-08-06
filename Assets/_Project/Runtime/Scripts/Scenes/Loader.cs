@@ -3,7 +3,7 @@ using Eflatun.SceneReference;
 using MEC;
 using UnityEngine.SceneManagement;
 
-namespace CoffeeDrop
+namespace App.SceneManagement
 {
     public static class Loader
     {

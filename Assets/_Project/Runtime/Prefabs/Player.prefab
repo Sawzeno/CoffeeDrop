@@ -1790,8 +1790,10 @@ MonoBehaviour:
   JumpCooldown: 0
   DashForce: 3
   DashDuration: 1
-  DashDistance: 1
   DashCooldown: 0
+  AttackCooldown: 0.5
+  AttackingRange: 1
+  AttackDamage: 10
 --- !u!114 &5655442503990866083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,12 +1881,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5836520122568829788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4f277489af84fa692006bf07ea64ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 169e96561d3a540adbc0b45f30d6bf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  PlayerHealthChannel: {fileID: 11400000, guid: 2783997b5cb544ee2a8c68afe8fa4506,
-    type: 2}
+  HealthChannel: {fileID: 11400000, guid: 2783997b5cb544ee2a8c68afe8fa4506, type: 2}
 --- !u!1 &5930812019116361844
 GameObject:
   m_ObjectHideFlags: 0
