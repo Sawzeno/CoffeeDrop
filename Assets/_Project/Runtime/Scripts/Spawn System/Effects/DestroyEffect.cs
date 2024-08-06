@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game.SpawnSystem.Effects
 {
 
-    public class Destroy : MonoBehaviour
+    public class DestroyEffect : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

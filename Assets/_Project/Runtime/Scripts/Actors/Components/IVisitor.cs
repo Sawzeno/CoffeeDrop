@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace Game.Actors.Components
 {
     public interface IVisitor{

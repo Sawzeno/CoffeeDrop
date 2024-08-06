@@ -6,11 +6,12 @@ using UnityEngine;
 using App.Timers;
 using Game.StateMachine;
 using Game.Actors.Components;
+using System.Collections.Generic;
 
 
 namespace Game.Actors.Player
 {
-    public class PlayerController : ValidatedMonoBehaviour
+    public class PlayerController : ValidatedMonoBehaviour, IVisitable
     {
         #region SETTINGS
         [Header("References")]
@@ -61,6 +62,7 @@ namespace Game.Actors.Player
         float Velocity;
         float JumpVelocity;
         float DashVelocity = 1f;
+        List<IVisitable> VisitableComponents = new();
         #endregion
 
         void OnEnable()
@@ -76,7 +78,13 @@ namespace Game.Actors.Player
             InputReader.Attack -= OnAttack;
 
         }
-        void Start() => InputReader.EnablePlayerActions();
+        void Start()
+        {
+            InputReader.EnablePlayerActions();
+            VisitableComponents.Add(gameObject.GetComponent<ActorHealth>());
+            VisitableComponents.Add(gameObject.GetComponent<ActorMagic>());
+
+        }
         void FixedUpdate()
         {
             StateProcessor.FixedUpdate();
@@ -231,6 +239,12 @@ namespace Game.Actors.Player
             }
         }
 
+        public void Accept(IVisitor visitor)
+        {
+            foreach(var component in VisitableComponents){
+                component.Accept(visitor);
+            }
+        }
         void At(IState from, IState to, IPredicate condition) => StateProcessor.AddTransition(from, to, condition);
         void Any(IState to, IPredicate condition) => StateProcessor.AddAnyTransition(to, condition);
 
