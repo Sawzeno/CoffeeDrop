@@ -718,7 +718,7 @@ MonoBehaviour:
   LoadingCanvas: {fileID: 781081849}
   LoadingCamera: {fileID: 1604546789}
   SceneGroups:
-  - GroupName: Level 1
+  - GroupName: Main
     Scenes:
     - Reference:
         asset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}

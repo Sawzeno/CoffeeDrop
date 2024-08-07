@@ -2,10 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using Eflatun.SceneReference;
-using MEC;
-using UnityEngine.SceneManagement;
-using System.Collections.Generic;
+
 
 //we are using the path property of the scene refernce type when we are loading the scene async
 //we are also going to load all these scenes additively
@@ -28,7 +25,7 @@ namespace App.SceneManagement
         void Awake(){
             Manager.OnSceneLoaded +=    sceneName => Debug.Log("Loaded Scene : " + sceneName);
             Manager.OnSceneUnloaded +=    sceneName => Debug.Log("Unloaded Scene: " + sceneName);
-            Manager.OnSceneGroupLoaded += () => Debug.Log("Scene Group loaded");
+            Manager.OnSceneGroupLoaded += sceneGroupName => Debug.Log("Scene Group loaded" + sceneGroupName);
         }
         async void Start()
         {

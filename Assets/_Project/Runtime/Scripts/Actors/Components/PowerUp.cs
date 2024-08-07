@@ -10,9 +10,7 @@ namespace Game.Actors.Components
         public void Visit(ActorHealth healthComponent)
         {
             healthComponent.AddHealth(HealthBonus);
-
         }
-
         public void Visit(ActorMagic magicComponent)
         {
             Debug.Log("VISIT MAGIC");

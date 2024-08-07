@@ -10,7 +10,7 @@ namespace App.SceneManagement
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static async void Init()
         {
-            Debug.Log("Bootstrapper...");
+            Debug.Log("Running Bootstrapper Scene");
             AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync("Bootstrapper", LoadSceneMode.Single);
             await AsyncOperationExtensions.DoAsTask(loadSceneAsync);
         }
