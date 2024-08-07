@@ -24,7 +24,7 @@ namespace App.Timers
             }
             PlayerLoop.SetPlayerLoop(currentPlayerLoop);
             string[] highlghts = { "UnityEngine.PlayerLoop.Update", "Timers.TimerManager" };
-            PlayerLoopUtils.PrintPlayerLoop(currentPlayerLoop, highlghts);
+            // PlayerLoopUtils.PrintPlayerLoop(currentPlayerLoop, highlghts);
 #if UNITY_EDITOR
             EditorApplication.playModeStateChanged -= OnPlayModeState;
             EditorApplication.playModeStateChanged += OnPlayModeState;

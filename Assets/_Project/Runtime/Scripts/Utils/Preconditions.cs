@@ -2,12 +2,11 @@ using System;
 
 namespace Utils{
     public class Preconditions{
-        public static T OrNull<T>( T obj) where T :  UnityEngine.Object => obj ? obj : null;
         public static T CheckNotNull<T>(T reference){
             return CheckNotNull(reference, null);
         }
         public static T CheckNotNull<T>(T reference , string message){
-            if(reference is UnityEngine.Object obj && OrNull(obj) == null){
+            if(reference is UnityEngine.Object obj && obj.OrNull() == null){
                 throw new ArgumentNullException(message);
             }
             if(reference is null){

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840db916e257440a0af50194cf91c0ac, type: 3}
   m_Name: HealthPowerUp
   m_EditorClassIdentifier: 
-  HelathBonus: 10
-  MagicRecharge: 10
+  HealthBonus: 10
+  MagicRecharge: 0
