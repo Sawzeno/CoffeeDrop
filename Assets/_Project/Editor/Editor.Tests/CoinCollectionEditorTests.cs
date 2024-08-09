@@ -3,7 +3,7 @@ using NSubstitute;
 using NUnit.Framework;
 using Utils;
 
-using Game.CollectionSystem;
+using ToBeChanged;
 
 // N substitute lib can work with any class or interface that has virtual methods
 // Created substitute can be use as a mock or as a spy
